@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class StatsLibrary {
 
-    public static double mean(double[] values){
+    public double getMeanDouble(double[] values){
 
         double sum = 0.0;
 
@@ -10,10 +10,24 @@ public class StatsLibrary {
             sum += value;
         }
 
-        return ( sum / values.length);
+        double mean = (sum / values.length);
+
+        return mean;
     }
 
-    public static double mean(ArrayList<Double> values){
+    public double getMeanInt(int[] values){
+        int sum = 0;
+
+        for(int value: values){
+            sum += value;
+        }
+
+        double mean = (double)(sum / values.length);
+
+        return mean;
+    }
+
+    public double getMeanDouble(ArrayList<Double> values){
 
         double sum = 0.0;
 
@@ -21,41 +35,106 @@ public class StatsLibrary {
             sum += value;
         }
 
-        return (sum / values.size());
+        double mean = sum / values.size();
+
+        return mean;
     }
 
-    public static double median(double[] values){
+    public double getMeanInt(ArrayList<Integer> values){
+        int sum = 0;
+
+        for(int value: values){
+            sum += value;
+        }
+
+        double mean = (double)(sum / values.size());
+
+        return mean;
+    }
+
+    public double getMedianDouble(double[] values){
         if(values.length % 2 == 1){
 
             int index = (int)Math.ceil(values.length / 2);
 
-            return values[index];
-        }else {
+            double median = values[index];
 
+            return median;
+        }else {
             int index = values.length / 2;
 
             double firstValue = values[index];
             double secondValue = values[index + 1];
 
-            return (firstValue + secondValue) / 2.0;
+            double median = (firstValue + secondValue) / 2.0;
+
+            return median;
         }
     }
 
-    public static double median(ArrayList<Double> values){
+    public double getMedianInt(int[] values){
+        if(values.length % 2 == 1){
+
+            int index = (int)Math.ceil(values.length / 2);
+
+            double median = values[index];
+
+            return median;
+        }else {
+            int index = values.length / 2;
+
+            double firstValue = values[index];
+            double secondValue = values[index + 1];
+
+            double median = (firstValue + secondValue) / 2.0;
+
+            return median;
+        }
+    }
+
+    public double getMedianDouble(ArrayList<Double> values){
 
         if(values.size() % 2 == 1){
+
             int index = (int)Math.ceil(values.size() / 2);
-            return values.get(index);
+
+            double median = values.get(index);
+
+            return median;
         }else {
             int index = values.size() / 2;
+
             double firstValue = values.get(index);
             double secondValue = values.get(index + 1);
-            return (firstValue + secondValue) / 2.0;
+
+            double median = (firstValue + secondValue) / 2.0;
+
+            return median;
         }
 
     }
 
-    public static ArrayList<Double> mode(double[] values){
+    public double getMedianInt(ArrayList<Integer> values){
+        if(values.size() % 2 == 1){
+
+            int index = (int)Math.ceil(values.size() / 2);
+
+            double median = values.get(index);
+
+            return median;
+        }else {
+            int index = values.size() / 2;
+
+            double firstValue = values.get(index);
+            double secondValue = values.get(index + 1);
+
+            double median = (firstValue + secondValue) / 2.0;
+
+            return median;
+        }
+    }
+
+    public ArrayList<Double> getModeDouble(double[] values){
         ArrayList<Double> modes = new ArrayList<>();
         double previousNum = 0.0;
         int highestNumOfOccur = 1;
@@ -91,7 +170,43 @@ public class StatsLibrary {
         return modes;
     }
 
-    public static ArrayList<Double> mode (ArrayList<Double> values){
+    public ArrayList<Integer> getModeInt(int[] values) {
+        ArrayList<Integer> modes = new ArrayList<>();
+        int previousNum = 0;
+        int highestNumOfOccur = 1;
+        int currentNumOccur = 0;
+
+        for(int value : values) {
+            if (value > previousNum) {
+                if (currentNumOccur == highestNumOfOccur) {
+                    modes.add(previousNum);
+                    currentNumOccur = 0;
+                } else if (currentNumOccur > highestNumOfOccur) {
+                    modes.clear();
+                    modes.add(previousNum);
+                    highestNumOfOccur = currentNumOccur;
+                    currentNumOccur = 0;
+                } else {
+                    currentNumOccur = 0;
+                }
+            }
+            currentNumOccur++;
+            previousNum = value;
+        }
+
+        if (currentNumOccur == highestNumOfOccur) {
+            modes.add(previousNum);
+            currentNumOccur = 0;
+        } else if (currentNumOccur > highestNumOfOccur) {
+            modes.clear();
+            modes.add(previousNum);
+            highestNumOfOccur = currentNumOccur;
+        }
+
+        return modes;
+    }
+
+    public ArrayList<Double> getModeDouble(ArrayList<Double> values){
         ArrayList<Double> modes = new ArrayList<>();
         double previousNum = 0.0;
         int highestNumOfOccur = 1;
@@ -127,9 +242,45 @@ public class StatsLibrary {
         return modes;
     }
 
-    public static double standardDeviation(double[] values){
+    public ArrayList<Integer> getModeInt(ArrayList<Integer> values){
+        ArrayList<Integer> modes = new ArrayList<>();
+        int previousNum = 0;
+        int highestNumOfOccur = 1;
+        int currentNumOccur = 0;
 
-        double mean = mean(values);
+        for(int value : values) {
+            if (value > previousNum) {
+                if (currentNumOccur == highestNumOfOccur) {
+                    modes.add(previousNum);
+                    currentNumOccur = 0;
+                } else if (currentNumOccur > highestNumOfOccur) {
+                    modes.clear();
+                    modes.add(previousNum);
+                    highestNumOfOccur = currentNumOccur;
+                    currentNumOccur = 0;
+                } else {
+                    currentNumOccur = 0;
+                }
+            }
+            currentNumOccur++;
+            previousNum = value;
+        }
+
+        if (currentNumOccur == highestNumOfOccur) {
+            modes.add(previousNum);
+            currentNumOccur = 0;
+        } else if (currentNumOccur > highestNumOfOccur) {
+            modes.clear();
+            modes.add(previousNum);
+            highestNumOfOccur = currentNumOccur;
+        }
+
+        return modes;
+    }
+
+    public double getStandardDeviationDouble(double[] values){
+
+        double mean = getMeanDouble(values);
 
         double sumOfSquares = 0.0;
 
@@ -144,9 +295,41 @@ public class StatsLibrary {
         return Math.sqrt(variance);
     }
 
-    public static double standardDeviation(ArrayList<Double> values){
+    public double getStandardDeviationInt(int[] values){
+        double mean = getMeanInt(values);
 
-        double mean = mean(values);
+        double sumOfSquares = 0.0;
+
+        for (int value : values){
+            value -= mean;
+            value = value*value;
+            sumOfSquares += value;
+        }
+
+        double variance = sumOfSquares / (values.length - 1);
+
+        return Math.sqrt(variance);
+    }
+
+    public double getStandardDeviationDouble(ArrayList<Double> values){
+
+        double mean = getMeanDouble(values);
+
+        double sumOfSquares = 0.0;
+
+        for (double value : values){
+            value -= mean;
+            value = value*value;
+            sumOfSquares += value;
+        }
+
+        double variance = sumOfSquares / (values.size() - 1);
+
+        return Math.sqrt(variance);
+    }
+
+    public double getStandardDeviationInt(ArrayList<Integer> values){
+        double mean = getMeanInt(values);
 
         double sumOfSquares = 0.0;
 
