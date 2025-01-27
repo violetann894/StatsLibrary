@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class statsTester {
+public class StatsTester {
 
     public static void main(String[] args) {
         ArrayList<Double> values = new ArrayList<>();
