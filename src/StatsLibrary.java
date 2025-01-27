@@ -25,14 +25,13 @@ public class StatsLibrary {
     }
 
     public static double median(double[] values){
-
-        // check if odd or even length
         if(values.length % 2 == 1){
             int index = (int)Math.ceil(values.length / 2);
             return values[index];
         }else {
-            double firstValue = values[values.length / 2];
-            double secondValue = values[(values.length / 2) + 1];
+            int index = values.length / 2;
+            double firstValue = values[index];
+            double secondValue = values[index + 1];
             return (firstValue + secondValue) / 2.0;
         }
     }
@@ -43,8 +42,9 @@ public class StatsLibrary {
             int index = (int)Math.ceil(values.size() / 2);
             return values.get(index);
         }else {
-            double firstValue = values.get(values.size() / 2);
-            double secondValue = values.get((values.size() / 2) + 1);
+            int index = values.size() / 2;
+            double firstValue = values.get(index);
+            double secondValue = values.get(index + 1);
             return (firstValue + secondValue) / 2.0;
         }
 
