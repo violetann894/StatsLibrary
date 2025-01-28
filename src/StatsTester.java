@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/**
+ * The StatsTester class is used to test the class StatsLibrary and its associated methods.
+ * @author Rachel Hussmann
+ */
 public class StatsTester {
 
     public static void main(String[] args) {
