@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * The StatsLibrary class is a collection of statistical calculations that I have learned in my Probability and
@@ -105,10 +107,13 @@ public class StatsLibrary {
      * getMedianDouble accepts an array of doubles and finds the median of the values.
      *
      * @param values This method accepts an array of doubles that the user would like the median found for.
-     *               This method expects that the passed array is already sorted before being passed as a parameter.
      * @return This method returns a double value equal to the median of the parameter.
      */
     public double getMedianDouble(double[] values){
+
+        //Sorts the array before calculations are done
+        //According to the JavaDocs for Arrays.sort(), a dual pivot quicksort used to put the values in order.
+        Arrays.sort(values);
 
         //Checks to see if the length of the dataset is odd or even
         if(values.length % 2 == 1){
@@ -148,11 +153,13 @@ public class StatsLibrary {
      * getMedianInt accepts an array of integers and returns the median of the values.
      *
      * @param values This method accepts an array of integers that the user would like the median calculated for.
-     *               This method expects that the passed array is already sorted before being passed as
-     *               a parameter.
      * @return This method returns a double value equal to the median of the parameter.
      */
     public double getMedianInt(int[] values){
+
+        //Sorts the array before calculations are done
+        //According to the JavaDocs for Arrays.sort(), a dual pivot quicksort is used to put the values in order.
+        Arrays.sort(values);
 
         //Checks to see if the length of the dataset is odd or even
         if(values.length % 2 == 1){
@@ -192,11 +199,14 @@ public class StatsLibrary {
      * getMedianDouble accepts an ArrayList of doubles and returns the median of the values.
      *
      * @param values This method accepts an ArrayList of doubles that the user would like the median calculated for.
-     *               This method expects that the passed array is already sorted before being passed as
-     *               a parameter.
      * @return This method returns a double value equal to the median of the parameter.
      */
     public double getMedianDouble(ArrayList<Double> values){
+
+        //Sorts the ArrayList before performing calculations
+        /* According to the JavaDocs for list.sort(), the interface Collections is built on,
+           a merge sort is used to put the values in order. */
+        Collections.sort(values);
 
         //Checks to see if the length of the dataset is odd or even
         if(values.size() % 2 == 1){
@@ -237,11 +247,15 @@ public class StatsLibrary {
      * getMedianInt accepts an ArrayList of integers and returns the median of the values.
      *
      * @param values This method accepts an ArrayList of integers that the user would like the median calculated for.
-     *               This method expects that the passed array is already sorted before being passed
-     *               as a parameter.
      * @return This method returns a double value equal to the median of the parameter.
      */
     public double getMedianInt(ArrayList<Integer> values){
+
+        //Sorts the ArrayList before performing calculations
+        /* According to the JavaDocs for list.sort(), the interface Collections is built on,
+           a merge sort is used to put the values in order. */
+        Collections.sort(values);
+
         //Checks to see if the length of the dataset is odd or even
         if(values.size() % 2 == 1){
 
@@ -280,11 +294,14 @@ public class StatsLibrary {
      * getModeDouble accepts an array of doubles and finds the mode(s).
      *
      * @param values This method accepts an array of doubles that the user would like the mode(s) found for.
-     *               This method expects that the passed array is already sorted before being passed
-     *               as a parameter.
      * @return This method returns an ArrayList of doubles that contains the mode(s) of the data.
      */
     public ArrayList<Double> getModeDouble(double[] values){
+
+        //Sorts the array before calculations are done
+        //According to the JavaDocs for Arrays.sort(), a dual pivot quicksort is used to put the values in order.
+        Arrays.sort(values);
+
         //Initializes the ArrayList that will hold the mode(s) of the dataset
         ArrayList<Double> modes = new ArrayList<>();
 
@@ -369,11 +386,14 @@ public class StatsLibrary {
      * getModeInt accepts and array of integers and finds the mode(s).
      *
      * @param values This method accepts an array of integers that the user would like the mode(s) found for.
-     *               This method expects that the passed array is already sorted before being passed
-     *               as a parameter.
      * @return This method returns an ArrayList of doubles that contains the mode(s) of the data.
      */
     public ArrayList<Integer> getModeInt(int[] values) {
+
+        //Sorts the array before calculations are done
+        //According to the JavaDocs for Arrays.sort(), a dual pivot quicksort is used to put the values in order.
+        Arrays.sort(values);
+
         //Initializes the ArrayList that will hold the mode(s) of the dataset
         ArrayList<Integer> modes = new ArrayList<>();
 
@@ -458,11 +478,15 @@ public class StatsLibrary {
      * getModeDouble accepts an ArrayList of doubles and finds the mode(s).
      *
      * @param values This method accepts an ArrayList of doubles that the user would like the mode(s) found for.
-     *               This method expects that the passed array is already sorted before being passed
-     *               as a parameter.
      * @return This method returns an ArrayList of doubles that contains the mode(s) of the data.
      */
     public ArrayList<Double> getModeDouble(ArrayList<Double> values){
+
+        //Sorts the ArrayList before performing calculations
+        /* According to the JavaDocs for list.sort(), the interface Collections is built on,
+           a merge sort is used to put the values in order. */
+        Collections.sort(values);
+
         //Initializes the ArrayList that will hold the mode(s) of the dataset
         ArrayList<Double> modes = new ArrayList<>();
 
@@ -547,11 +571,15 @@ public class StatsLibrary {
      * getModeInt accepts an ArrayList of integers and finds the mode(s).
      *
      * @param values This method accepts an ArrayList of integers that the user would like the mode(s) found for.
-     *               This method expects that the passed array is already sorted before being passed
-     *               as a parameter.
      * @return This method returns an ArrayList of doubles that contains the mode(s) of the data.
      */
     public ArrayList<Integer> getModeInt(ArrayList<Integer> values){
+
+        //Sorts the ArrayList before performing calculations
+        /* According to the JavaDocs for list.sort(), the interface Collections is built on,
+           a merge sort is used to put the values in order. */
+        Collections.sort(values);
+
         //Initializes the ArrayList that will hold the mode(s) of the dataset
         ArrayList<Integer> modes = new ArrayList<>();
 
